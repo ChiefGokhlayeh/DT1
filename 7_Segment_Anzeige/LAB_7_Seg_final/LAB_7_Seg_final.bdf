@@ -1,0 +1,189 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+//#pragma file_not_in_maxplusii_format
+(header "graphic" (version "1.4"))
+(pin
+	(input)
+	(rect 120 200 288 216)
+	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
+	(text "buttons[3..0]" (rect 5 0 67 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 92 12)(pt 117 12))
+		(line (pt 92 4)(pt 117 4))
+		(line (pt 121 8)(pt 168 8))
+		(line (pt 92 12)(pt 92 4))
+		(line (pt 117 4)(pt 121 8))
+		(line (pt 117 12)(pt 121 8))
+	)
+	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 48 96 104 152))
+)
+(pin
+	(input)
+	(rect 120 248 288 264)
+	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
+	(text "clk" (rect 5 0 19 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 92 12)(pt 117 12))
+		(line (pt 92 4)(pt 117 4))
+		(line (pt 121 8)(pt 168 8))
+		(line (pt 92 12)(pt 92 4))
+		(line (pt 117 4)(pt 121 8))
+		(line (pt 117 12)(pt 121 8))
+	)
+	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 40 280 88 296))
+)
+(pin
+	(output)
+	(rect 600 368 802 384)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "state[3..0]" (rect 90 0 140 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+	(annotation_block (location)(rect 1080 136 1184 192))
+)
+(pin
+	(output)
+	(rect 600 528 782 544)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "seven_segs[7..0]" (rect 90 0 176 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+	(annotation_block (location)(rect 1008 560 1064 688))
+)
+(block
+	(rect 344 192 544 296)
+	(text "Entpreller" (rect 5 5 58 19)(font "Arial" (font_size 8)))	(text "inst" (rect 5 90 22 102)(font "Arial" ))	(block_io "clk" (input))
+	(block_io "buttons[3..0]" (input))
+	(block_io "buttons_entprellt[3..0]" (output))
+	(mapper
+		(pt 0 16)
+		(bidir)
+		)
+	(mapper
+		(pt 0 64)
+		(bidir)
+		)
+	(mapper
+		(pt 96 104)
+		(bidir)
+		)
+)
+(block
+	(rect 344 336 576 456)
+	(text "Toggle_REG" (rect 5 5 74 19)(font "Arial" (font_size 8)))	(text "inst4" (rect 5 106 28 118)(font "Arial" ))	(block_io "clk" (input))
+	(block_io "buttons_entprellt[3..0]" (input))
+	(block_io "state[3..0]" (output))
+	(mapper
+		(pt 96 0)
+		(bidir)
+		)
+	(mapper
+		(pt 0 48)
+		(bidir)
+		)
+	(mapper
+		(pt 96 120)
+		(bidir)
+		)
+	(mapper
+		(pt 232 40)
+		(bidir)
+		)
+)
+(block
+	(rect 344 480 552 584)
+	(text "Seven_seg_dec" (rect 5 5 98 19)(font "Arial" (font_size 8)))	(text "inst3" (rect 5 90 28 102)(font "Arial" ))	(block_io "state[3..0]" (input))
+	(block_io "seven_segs[7..0]" (output))
+	(mapper
+		(pt 208 56)
+		(bidir)
+		)
+	(mapper
+		(pt 96 0)
+		(bidir)
+		)
+)
+(connector
+	(pt 288 208)
+	(pt 344 208)
+	(conduit)
+)
+(connector
+	(pt 440 296)
+	(pt 440 336)
+	(conduit)
+)
+(connector
+	(pt 304 256)
+	(pt 304 384)
+	(conduit)
+)
+(connector
+	(pt 304 384)
+	(pt 344 384)
+	(conduit)
+)
+(connector
+	(pt 288 256)
+	(pt 304 256)
+	(conduit)
+)
+(connector
+	(pt 304 256)
+	(pt 344 256)
+	(conduit)
+)
+(connector
+	(pt 440 480)
+	(pt 440 456)
+	(conduit)
+)
+(connector
+	(pt 600 536)
+	(pt 552 536)
+	(conduit)
+)
+(connector
+	(pt 576 376)
+	(pt 600 376)
+	(conduit)
+)
+(junction (pt 304 256))
