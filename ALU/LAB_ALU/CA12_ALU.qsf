@@ -42,12 +42,12 @@ set_global_assignment -name ENABLE_CLOCK_LATENCY ON
 set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 780
 set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 6
-set_global_assignment -name FAMILY "Cyclone III"
+set_global_assignment -name FAMILY Stratix
 set_global_assignment -name TOP_LEVEL_ENTITY CA12_ALU
 
 # Fitter Assignments
 # ==================
-set_global_assignment -name DEVICE EP3C40F780C6
+set_global_assignment -name DEVICE EP1S10F780C6ES
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
 
 # Assembler Assignments

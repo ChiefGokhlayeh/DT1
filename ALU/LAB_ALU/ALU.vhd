@@ -32,80 +32,80 @@
 --  Letzte Aenderung: W. Lindermeir, 11/07
 
 
--- LIBRARY ieee;
--- USE ieee.std_logic_1164.all;
--- 
--- entity halbaddierer is
---   port(a, b : in  std_logic;
---        s, u : out std_logic  );
--- end halbaddierer;
--- 
--- architecture behav of halbaddierer is
--- begin
---   s <= ...
---   u <= ...
--- end behav;
--- 
--- LIBRARY ieee;
--- USE ieee.std_logic_1164.all;
--- 
--- entity volladdierer is
---   port(a, b, adder_c_in : in  std_logic;
---        s, c_out   : out std_logic   );
--- end volladdierer;
--- 
--- architecture behav of volladdierer is
--- 
--- ...
--- 
--- begin
--- ha1: entity work.halbaddierer
---      port map ( a => ..., b => ..., s => ..., u => ... );
---   
--- ha2: entity work.halbaddierer
---      port map ( a => ..., b => ..., s => ..., u => ... );
--- 
--- c_out <= ... 
--- end behav;
--- 
--- LIBRARY ieee;
--- USE ieee.std_logic_1164.all;
--- 
--- entity word_adder is
---   generic (n : natural := 8 );
---   port( adder_c_in   : in std_logic;
---         op1    : in std_logic_vector(n-1 downto 0);
---         op2    : in std_logic_vector(n-1 downto 0);
---         result : out std_logic_vector(n-1 downto 0);
---         c_prev : out std_logic;
---         c_out  : out std_logic       );
--- end word_adder;
--- 
--- architecture addierer_architecture of word_adder is
--- signal c : std_logic_vector(n-1 downto 0);
--- begin
--- 
--- wordadd: for posindex in 0 to n-1 generate
--- begin
---   cell_0: if posindex = 0 generate
---   begin
---   bitpos0: entity work.volladdierer
---            port map ( a => op1(0), b => op2(0), adder_c_in => adder_c_in,
---                       s => result(0), c_out => c(0) );
---   end generate cell_0;
--- 
---   inner_cell: if posindex > 0 generate 
---   begin
---   bitpos: entity work.volladdierer
---           port map ( a => op1(posindex), b => op2(posindex), adder_c_in => c(posindex-1),
---                      s => result(posindex), c_out => c(posindex) );
---   end generate inner_cell;
--- end generate wordadd;
--- 
--- c_out  <= ...
--- c_prev <= ...
--- 
--- end addierer_architecture;
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+entity halbaddierer is
+port(a, b : in  std_logic;
+	  s, u : out std_logic  );
+end halbaddierer;
+ 
+architecture behav of halbaddierer is
+begin
+	s <= (a and b) nor (a nor b);
+	u <= a and b;
+end behav;
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+entity volladdierer is
+port(a, b, adder_c_in : in  std_logic;
+	  s, c_out   : out std_logic   );
+end volladdierer;
+ 
+architecture behav of volladdierer is
+
+signal sha1, uha1, uha2 : std_logic;
+
+begin
+ha1: entity work.halbaddierer
+	port map ( a => a, b => b, s => sha1, u => uha1 );
+
+ ha2: entity work.halbaddierer
+	port map ( a => sha1, b => adder_c_in, s => s, u => uha2 );
+
+c_out <= uha1 or uha2;
+end behav;
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+entity word_adder is
+generic (n : natural := 8 );
+port( adder_c_in   : in std_logic;
+		op1    : in std_logic_vector(n-1 downto 0);
+		op2    : in std_logic_vector(n-1 downto 0);
+		result : out std_logic_vector(n-1 downto 0);
+		c_prev : out std_logic;
+		c_out  : out std_logic       );
+end word_adder;
+
+architecture addierer_architecture of word_adder is
+signal c : std_logic_vector(n-1 downto 0);
+begin
+
+wordadd: for posindex in 0 to n-1 generate
+begin
+cell_0: if posindex = 0 generate
+begin
+bitpos0: entity work.volladdierer
+			port map ( a => op1(0), b => op2(0), adder_c_in => adder_c_in,
+						  s => result(0), c_out => c(0) );
+end generate cell_0;
+
+inner_cell: if posindex > 0 generate 
+begin
+bitpos: entity work.volladdierer
+		  port map ( a => op1(posindex), b => op2(posindex), adder_c_in => c(posindex-1),
+						 s => result(posindex), c_out => c(posindex) );
+end generate inner_cell;
+end generate wordadd;
+
+c_out  <= c(n-1);
+c_prev <= c(n-2);
+
+end addierer_architecture;
 
 
 LIBRARY ieee;
@@ -149,10 +149,10 @@ signal adder_result : std_logic_vector(7 downto 0);
 BEGIN
         
 --  -- instanciate wordadder
---  wordadder: entity work.word_adder
---             generic map (n => 8)
---             port map (adder_c_in => adder_c_in, op1 => ALU_in1, op2 => adder_op2, result => adder_result, 
---                       c_prev => c_prev, c_out => c_out );
+wordadder: entity work.word_adder
+           generic map (n => 8)
+           port map (adder_c_in => adder_c_in, op1 => ALU_in1, op2 => adder_op2, result => adder_result, 
+                     c_prev => c_prev, c_out => c_out );
 
 
        
@@ -174,10 +174,25 @@ begin
   carry_var    := '0';
   overflow_var := '0';
   case ALU_func is
---     when alu_add     => ...
---     when alu_add_c   => ...
---     when alu_sub     => ...
---     when alu_sub_b   => ...
+     when alu_add     => adder_op2_var := ALU_in2;
+								 result_var := adder_result;
+                         carry_var := c_out;
+                         overflow_var := c_out xor c_prev;
+     when alu_add_c   => adder_op2_var := ALU_in2;
+								 c_in_var := ALU_c_in;
+								 result_var := adder_result;
+                         carry_var := c_out;
+                         overflow_var := c_out xor c_prev;
+     when alu_sub     => adder_op2_var := not(ALU_in2);
+								 c_in_var := '1';
+								 result_var := adder_result;
+                         carry_var := not c_out;
+                         overflow_var := c_out xor c_prev;
+     when alu_sub_b   => adder_op2_var := not(ALU_in2);
+								 c_in_var := not ALU_c_in;
+								 result_var := adder_result;
+                         carry_var := not c_out;
+                         overflow_var := c_out xor c_prev;
 
      when alu_and     => result_var := ALU_in1 AND ALU_in2;  
      when alu_or      => result_var := ALU_in1 OR  ALU_in2;  
@@ -187,9 +202,9 @@ begin
                          for index in 0 to 7 loop
                            if index < i then
                               -- determine carry condition flag
-                              -- carry_var := ...
+                              carry_var := result_var(7) or carry_var;
                               -- determine overflow condition flag
-                              -- overflow_var := ...
+                              overflow_var := (result_var(7) xor result_var(6)) or overflow_var;
                               result_var := to_stdlogicvector(to_bitvector(result_var) sll 1);
                            end if;
                          end loop;
@@ -204,14 +219,33 @@ begin
 
      when alu_pass_s1 => result_var := ALU_in1;  
 
-     when alu_pass_s2 => result_var := ALU_in2;  
+     when alu_pass_s2 => result_var := ALU_in2;
+	  
+	  when alu_inc		 => c_in_var := '1';
+						       result_var := adder_result;
+						       carry_var := c_out;
+						       overflow_var := c_out xor c_prev;
+
+	  when alu_dec		 => c_in_var := '1';
+								 adder_op2_var := "11111110";
+						       result_var := adder_result;
+						       carry_var := not c_out;
+						       overflow_var := c_out xor c_prev;
 
      when others      => report "illegal function code"
                            severity note;
                          result_var := (others => '0');  
   end case;
  
-  zero_var     := to_stdulogic(bit'val(boolean'pos(result_var = "00000000")));
+  zero_var := (not result_var(7))
+			 and (not result_var(6))
+			 and (not result_var(5))
+			 and (not result_var(4))
+			 and (not result_var(3))
+			 and (not result_var(2))
+			 and (not result_var(1))
+			 and (not result_var(0));
+  -- zero_var     := to_stdulogic(bit'val(boolean'pos(result_var = "00000000")));
   negative_var := result_var(7);
 
   ALU_result <= result_var;

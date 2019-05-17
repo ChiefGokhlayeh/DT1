@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP1S10F780) Path("Z:/work/vers/CA_Labore/Labor_2_ALU/quartus_projekte/LAB_ALU/") File("CA12_ALU.sof") MfrSpec(OpMask(1));
+		Device PartName(EP1S10F780) Path("G:/DT1_LABOR/ALU/LAB_ALU/") File("CA12_ALU.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

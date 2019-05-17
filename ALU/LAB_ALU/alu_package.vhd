@@ -23,6 +23,8 @@ package alu_types is
   constant alu_sra     : alu_func := "1010";
   constant alu_pass_s1 : alu_func := "1100";
   constant alu_pass_s2 : alu_func := "1101";
+  constant alu_inc	  : alu_func := "1110";
+  constant alu_dec	  : alu_func := "1111";
 
 end package alu_types;
 
