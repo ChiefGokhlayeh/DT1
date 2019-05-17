@@ -1,0 +1,145 @@
+# Copyright (C) 1991-2006 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions
+# and other software and tools, and its AMPP partner logic
+# functions, and any output files from any of the foregoing
+# (including device programming or simulation files), and any
+# associated documentation or information are expressly subject
+# to the terms and conditions of the Altera Program License
+# Subscription Agreement, Altera MegaCore Function License
+# Agreement, or other applicable license agreement, including,
+# without limitation, that your use is for the sole purpose of
+# programming logic devices manufactured by Altera and sold by
+# Altera or its authorized distributors.  Please refer to the
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		CA12_ALU_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+
+# Project-Wide Assignments
+# ========================
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 6.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:00:26  APRIL 04, 2007"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+
+# Pin & Location Assignments
+# ==========================
+
+# Classic Timing Assignments
+# ==========================
+set_global_assignment -name ENABLE_CLOCK_LATENCY ON
+
+# Analysis & Synthesis Assignments
+# ================================
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 780
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 6
+set_global_assignment -name FAMILY "Cyclone III"
+set_global_assignment -name TOP_LEVEL_ENTITY CA12_ALU
+
+# Fitter Assignments
+# ==================
+set_global_assignment -name DEVICE EP3C40F780C6
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+
+# Assembler Assignments
+# =====================
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+
+# Simulator Assignments
+# =====================
+set_global_assignment -name SIMULATION_MODE FUNCTIONAL
+set_global_assignment -name ADD_DEFAULT_PINS_TO_SIMULATION_OUTPUT_WAVEFORMS OFF
+
+# LogicLock Region Assignments
+# ============================
+
+# start CLOCK(sys_clk)
+# --------------------
+
+# Classic Timing Assignments
+# ==========================
+set_global_assignment -name FMAX_REQUIREMENT "50 MHz" -section_id sys_clk
+
+# end CLOCK(sys_clk)
+# ------------------
+
+# ------------------------
+# start ENTITY(DT_RE1_ALU)
+
+# Classic Timing Assignments
+# ==========================
+
+# Fitter Assignments
+# ==================
+
+# end ENTITY(DT_RE1_ALU)
+# ----------------------
+set_instance_assignment -name CLOCK_SETTINGS sys_clk -to clk
+set_instance_assignment -name ENABLE_BUS_HOLD_CIRCUITRY ON -to LCD_DB
+
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE stimuli.vwf
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS COMMAND_MACRO_MODE -section_id eda_simulation
+set_global_assignment -name EDA_SIMULATION_RUN_SCRIPT simulation/modelsim/CA12_ALU_specific_modelsim_altera.do -section_id eda_simulation
+set_global_assignment -name SDC_FILE CA12_ALU.sdc
+set_global_assignment -name BDF_FILE CA12_ALU.bdf
+set_global_assignment -name VECTOR_WAVEFORM_FILE stimuli.vwf
+set_global_assignment -name VHDL_FILE alu_package.vhd
+set_global_assignment -name VHDL_FILE stimulus_gen.vhd
+set_global_assignment -name VHDL_FILE ALU.vhd
+set_global_assignment -name VHDL_FILE LCD_data_prep.vhd
+set_global_assignment -name VHDL_FILE Entpreller.vhd
+set_global_assignment -name VHDL_FILE result_checker.vhd
+set_global_assignment -name VHDL_FILE Dual_Seven_seg_dec.vhd
+set_global_assignment -name VHDL_FILE LCD_controller.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_K17 -to clk
+set_location_assignment PIN_W5 -to next_stim_n_button
+set_location_assignment PIN_W6 -to prev_stim_n_button
+set_location_assignment PIN_AB1 -to reset_n_button
+set_location_assignment PIN_H27 -to result_ok_n
+set_location_assignment PIN_H28 -to ALU_c_in
+set_location_assignment PIN_L19 -to result_history_ok_n
+set_location_assignment PIN_M8 -to LCD_RW
+set_location_assignment PIN_M7 -to LCD_RS
+set_location_assignment PIN_K3 -to LCD_E
+set_location_assignment PIN_H3 -to LCD_DB[0]
+set_location_assignment PIN_L7 -to LCD_DB[1]
+set_location_assignment PIN_L8 -to LCD_DB[2]
+set_location_assignment PIN_H2 -to LCD_DB[3]
+set_location_assignment PIN_H1 -to LCD_DB[4]
+set_location_assignment PIN_L6 -to LCD_DB[5]
+set_location_assignment PIN_L5 -to LCD_DB[6]
+set_location_assignment PIN_J4 -to LCD_DB[7]
+set_location_assignment PIN_C21 -to seven_segs[0]
+set_location_assignment PIN_B21 -to seven_segs[1]
+set_location_assignment PIN_A21 -to seven_segs[2]
+set_location_assignment PIN_C20 -to seven_segs[3]
+set_location_assignment PIN_A20 -to seven_segs[4]
+set_location_assignment PIN_B20 -to seven_segs[5]
+set_location_assignment PIN_B18 -to seven_segs[6]
+set_location_assignment PIN_E19 -to seven_segs[7]
+set_location_assignment PIN_C19 -to seven_segs[8]
+set_location_assignment PIN_B19 -to seven_segs[9]
+set_location_assignment PIN_A19 -to seven_segs[10]
+set_location_assignment PIN_D18 -to seven_segs[11]
+set_location_assignment PIN_C18 -to seven_segs[12]
+set_location_assignment PIN_A18 -to seven_segs[13]
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
