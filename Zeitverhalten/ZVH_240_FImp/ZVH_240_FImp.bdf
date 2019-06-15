@@ -1,0 +1,348 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+//#pragma file_not_in_maxplusii_format
+(header "graphic" (version "1.4"))
+(pin
+	(input)
+	(rect -24 288 144 304)
+	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
+	(text "A" (rect 5 0 13 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 92 12)(pt 117 12))
+		(line (pt 92 4)(pt 117 4))
+		(line (pt 121 8)(pt 168 8))
+		(line (pt 92 12)(pt 92 4))
+		(line (pt 117 4)(pt 121 8))
+		(line (pt 117 12)(pt 121 8))
+	)
+	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect -24 216 144 232)
+	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
+	(text "S" (rect 5 0 12 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 92 12)(pt 117 12))
+		(line (pt 92 4)(pt 117 4))
+		(line (pt 121 8)(pt 168 8))
+		(line (pt 92 12)(pt 92 4))
+		(line (pt 117 4)(pt 121 8))
+		(line (pt 117 12)(pt 121 8))
+	)
+	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect -24 56 144 72)
+	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
+	(text "B" (rect 5 0 12 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 92 12)(pt 117 12))
+		(line (pt 92 4)(pt 117 4))
+		(line (pt 121 8)(pt 168 8))
+		(line (pt 92 12)(pt 92 4))
+		(line (pt 117 4)(pt 121 8))
+		(line (pt 117 12)(pt 121 8))
+	)
+	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(output)
+	(rect 720 152 896 168)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "Y" (rect 90 0 98 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(block
+	(rect 160 184 224 264)
+	(text "NOT_V" (rect 5 5 46 19)(font "Arial" (font_size 8)))	(text "U1_1" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"5"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"5"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 0 40)
+		(bidir)
+		(mapping "IN1" "S" )
+		(annotation_block (mapping)(rect 88 240 144 272))
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "X0" )
+		(annotation_block (mapping)(rect 240 240 296 272))
+	)
+	(annotation_block (parameter)(rect 160 128 264 176))
+)
+(block
+	(rect 320 184 384 264)
+	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_1" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "IN2" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"1"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"1"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 0 56)
+		(bidir)
+		(mapping "IN2" "X0" )
+		(annotation_block (mapping)(rect 248 256 304 288))
+	)
+	(mapper
+		(pt 0 24)
+		(bidir)
+		(mapping "IN1" "X0" )
+		(annotation_block (mapping)(rect 248 224 304 256))
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "X1" )
+		(annotation_block (mapping)(rect 400 240 456 272))
+	)
+	(annotation_block (parameter)(rect 320 128 424 176))
+)
+(block
+	(rect 480 200 544 280)
+	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_2" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "IN2" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"1"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"1"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 0 24)
+		(bidir)
+		(mapping "IN1" "X1" )
+		(annotation_block (mapping)(rect 408 240 464 272))
+	)
+	(mapper
+		(pt 0 56)
+		(bidir)
+		(mapping "IN2" "A" )
+		(annotation_block (mapping)(rect 408 272 464 304))
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "X3" )
+		(annotation_block (mapping)(rect 560 256 616 288))
+	)
+	(annotation_block (parameter)(rect 480 144 584 192))
+)
+(block
+	(rect 640 120 704 200)
+	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_4" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "IN2" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"1"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"1"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 0 56)
+		(bidir)
+		(mapping "IN2" "X3" )
+		(annotation_block (mapping)(rect 568 192 624 224))
+	)
+	(mapper
+		(pt 0 24)
+		(bidir)
+		(mapping "IN1" "X2" )
+		(annotation_block (mapping)(rect 568 160 624 192))
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "Y" )
+		(annotation_block (mapping)(rect 720 176 776 208))
+	)
+	(annotation_block (parameter)(rect 640 64 744 112))
+)
+(block
+	(rect 480 40 544 120)
+	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_3" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "IN2" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"1"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"1"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 0 56)
+		(bidir)
+		(mapping "IN2" "X0" )
+		(annotation_block (mapping)(rect 408 112 464 144))
+	)
+	(mapper
+		(pt 0 24)
+		(bidir)
+		(mapping "IN1" "B" )
+		(annotation_block (mapping)(rect 408 80 464 112))
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "X2" )
+		(annotation_block (mapping)(rect 560 96 616 128))
+	)
+	(annotation_block (parameter)(rect 480 -16 584 32))
+)
+(connector
+	(pt 616 240)
+	(pt 616 176)
+)
+(connector
+	(pt 640 144)
+	(pt 616 144)
+)
+(connector
+	(pt 616 144)
+	(pt 616 80)
+)
+(connector
+	(pt 616 176)
+	(pt 640 176)
+)
+(connector
+	(pt 304 240)
+	(pt 320 240)
+)
+(connector
+	(pt 272 96)
+	(pt 480 96)
+)
+(connector
+	(pt 432 296)
+	(pt 432 256)
+)
+(connector
+	(pt 432 256)
+	(pt 480 256)
+)
+(connector
+	(pt 272 224)
+	(pt 272 96)
+)
+(connector
+	(pt 272 224)
+	(pt 304 224)
+)
+(connector
+	(pt 304 208)
+	(pt 320 208)
+)
+(connector
+	(pt 304 208)
+	(pt 304 224)
+)
+(connector
+	(pt 304 224)
+	(pt 304 240)
+)
+(connector
+	(text "X0" (rect 226 224 237 236)(font "Arial" ))
+	(pt 224 224)
+	(pt 272 224)
+)
+(connector
+	(text "X1" (rect 386 224 397 236)(font "Arial" ))
+	(pt 384 224)
+	(pt 480 224)
+)
+(connector
+	(text "A" (rect 146 296 154 308)(font "Arial" ))
+	(pt 144 296)
+	(pt 432 296)
+)
+(connector
+	(text "S" (rect 146 224 153 236)(font "Arial" ))
+	(pt 144 224)
+	(pt 160 224)
+)
+(connector
+	(text "B" (rect 146 64 153 76)(font "Arial" ))
+	(pt 480 64)
+	(pt 144 64)
+)
+(connector
+	(text "X3" (rect 546 240 557 252)(font "Arial" ))
+	(pt 544 240)
+	(pt 616 240)
+)
+(connector
+	(text "X2" (rect 546 80 557 92)(font "Arial" ))
+	(pt 616 80)
+	(pt 544 80)
+)
+(connector
+	(text "Y" (rect 706 160 714 172)(font "Arial" ))
+	(pt 704 160)
+	(pt 720 160)
+)
+(junction (pt 272 224))
+(junction (pt 304 224))

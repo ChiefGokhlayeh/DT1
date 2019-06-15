@@ -1,0 +1,303 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+//#pragma file_not_in_maxplusii_format
+(header "graphic" (version "1.4"))
+(pin
+	(input)
+	(rect -48 216 120 232)
+	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
+	(text "T" (rect 5 0 10 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 92 12)(pt 117 12))
+		(line (pt 92 4)(pt 117 4))
+		(line (pt 121 8)(pt 168 8))
+		(line (pt 92 12)(pt 92 4))
+		(line (pt 117 4)(pt 121 8))
+		(line (pt 117 12)(pt 121 8))
+	)
+	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect -48 328 120 344)
+	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
+	(text "CLR_n" (rect 5 0 39 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 92 12)(pt 117 12))
+		(line (pt 92 4)(pt 117 4))
+		(line (pt 121 8)(pt 168 8))
+		(line (pt 92 12)(pt 92 4))
+		(line (pt 117 4)(pt 121 8))
+		(line (pt 117 12)(pt 121 8))
+	)
+	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect -48 352 120 368)
+	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
+	(text "SET_n" (rect 5 0 36 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 92 12)(pt 117 12))
+		(line (pt 92 4)(pt 117 4))
+		(line (pt 121 8)(pt 168 8))
+		(line (pt 92 12)(pt 92 4))
+		(line (pt 117 4)(pt 121 8))
+		(line (pt 117 12)(pt 121 8))
+	)
+	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(output)
+	(rect 632 176 808 192)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "Q" (rect 90 0 98 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(block
+	(rect 144 184 208 264)
+	(text "NOT_V" (rect 5 5 46 19)(font "Arial" (font_size 8)))	(text "U1_1" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"1"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"1"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 0 40)
+		(bidir)
+		(mapping "IN1" "T" )
+		(annotation_block (mapping)(rect 72 240 120 272))
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "T_n" )
+		(annotation_block (mapping)(rect 224 240 288 272))
+	)
+	(annotation_block (parameter)(rect 144 128 248 176))
+)
+(block
+	(rect 280 184 344 264)
+	(text "NOT_V" (rect 5 5 46 19)(font "Arial" (font_size 8)))	(text "U1_2" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "IN2" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"1"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"1"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 0 40)
+		(bidir)
+		(mapping "IN1" "T_n" )
+		(annotation_block (mapping)(rect 200 240 264 272))
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "C" )
+		(annotation_block (mapping)(rect 360 240 416 272))
+	)
+	(annotation_block (parameter)(rect 280 128 384 176))
+)
+(block
+	(rect 480 160 560 296)
+	(text "JKFF_V" (rect 5 5 49 19)(font "Arial" (font_size 8)))	(text "U8_Mod" (rect 5 122 45 134)(font "Arial" ))	(block_io "J" (input))
+	(block_io "K" (input))
+	(block_io "SET_n" (input))
+	(block_io "CLR_n" (input))
+	(block_io "CLK_n" (input))
+	(block_io "Q" (output))
+	(block_io "Q_n" (output))
+	(parameter
+		"TP_CLK_Q_LH"
+		"1"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_CLK_Q_HL"
+		"1"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(parameter
+		"TP_CLK_Qn_LH"
+		"1"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_CLK_Qn_HL"
+		"1"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 24 136)
+		(bidir)
+		(mapping "CLR_n" "Clr_n" )
+		(annotation_block (mapping)(rect 520 312 592 344))
+	)
+	(mapper
+		(pt 56 136)
+		(bidir)
+		(mapping "SET_n" "Set_n" )
+		(annotation_block (mapping)(rect 552 312 624 344))
+	)
+	(mapper
+		(pt 0 64)
+		(bidir)
+		(mapping "CLK_n" "C" )
+		(annotation_block (mapping)(rect 408 240 464 272))
+	)
+	(mapper
+		(pt 80 104)
+		(bidir)
+		(mapping "Q_n" "Q_n" )
+		(annotation_block (mapping)(rect 576 280 640 312))
+	)
+	(mapper
+		(pt 80 24)
+		(bidir)
+		(mapping "Q" "Q" )
+		(annotation_block (mapping)(rect 576 200 632 232))
+	)
+	(mapper
+		(pt 0 24)
+		(bidir)
+		(mapping "J" "Q_n" )
+		(annotation_block (mapping)(rect 400 200 464 232))
+	)
+	(mapper
+		(pt 0 104)
+		(bidir)
+		(mapping "K" "Q" )
+		(annotation_block (mapping)(rect 408 280 464 312))
+	)
+	(annotation_block (parameter)(rect 472 40 592 112))
+)
+(connector
+	(pt 480 184)
+	(pt 448 184)
+)
+(connector
+	(text "C" (rect 386 224 396 240)(font "Arial" (font_size 10)(bold)))
+	(pt 480 224)
+	(pt 344 224)
+)
+(connector
+	(text "T" (rect 122 224 131 240)(font "Arial" (font_size 10)(bold)))
+	(pt 120 224)
+	(pt 144 224)
+)
+(connector
+	(pt 592 264)
+	(pt 560 264)
+)
+(connector
+	(pt 592 264)
+	(pt 592 136)
+)
+(connector
+	(pt 448 136)
+	(pt 448 184)
+)
+(connector
+	(pt 536 296)
+	(pt 536 360)
+)
+(connector
+	(pt 504 296)
+	(pt 504 336)
+)
+(connector
+	(pt 448 264)
+	(pt 480 264)
+)
+(connector
+	(text "T_n" (rect 234 224 261 240)(font "Arial" (font_size 10)(bold)))
+	(pt 208 224)
+	(pt 280 224)
+)
+(connector
+	(pt 616 320)
+	(pt 448 320)
+)
+(connector
+	(pt 448 264)
+	(pt 448 320)
+)
+(connector
+	(pt 560 184)
+	(pt 616 184)
+)
+(connector
+	(pt 616 184)
+	(pt 632 184)
+)
+(connector
+	(text "Clr_n" (rect 130 336 155 348)(font "Arial" ))
+	(pt 120 336)
+	(pt 504 336)
+)
+(connector
+	(text "Set_n" (rect 130 360 158 372)(font "Arial" ))
+	(pt 120 360)
+	(pt 536 360)
+)
+(connector
+	(text "Q_n" (rect 570 136 590 148)(font "Arial" ))
+	(pt 592 136)
+	(pt 448 136)
+)
+(connector
+	(text "Q" (rect 568 319 580 327)(font "Arial" )(vertical))
+	(pt 616 184)
+	(pt 616 320)
+)
+(junction (pt 616 184))
+(text "J" (rect 464 184 472 200)(font "Arial" (font_size 10)(bold)))
+(text "K" (rect 464 264 474 280)(font "Arial" (font_size 10)(bold)))
+(text "Clk_n" (rect 440 224 481 240)(font "Arial" (font_size 10)(bold)))
+(text "Q" (rect 568 184 579 200)(font "Arial" (font_size 10)(bold)))
+(text "Q_n" (rect 568 264 597 280)(font "Arial" (font_size 10)(bold)))
+(text "CLR_n" (rect 464 296 507 311)(font "Arial" (font_size 9)(bold)))
+(text "SET_n" (rect 544 296 586 311)(font "Arial" (font_size 9)(bold)))

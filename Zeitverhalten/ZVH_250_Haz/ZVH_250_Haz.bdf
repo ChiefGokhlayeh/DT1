@@ -1,0 +1,340 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+//#pragma file_not_in_maxplusii_format
+(header "graphic" (version "1.4"))
+(pin
+	(input)
+	(rect -24 48 144 64)
+	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
+	(text "D" (rect 5 0 13 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 92 12)(pt 117 12))
+		(line (pt 92 4)(pt 117 4))
+		(line (pt 121 8)(pt 168 8))
+		(line (pt 92 12)(pt 92 4))
+		(line (pt 117 4)(pt 121 8))
+		(line (pt 117 12)(pt 121 8))
+	)
+	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect -24 208 144 224)
+	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
+	(text "T" (rect 5 0 10 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 92 12)(pt 117 12))
+		(line (pt 92 4)(pt 117 4))
+		(line (pt 121 8)(pt 168 8))
+		(line (pt 92 12)(pt 92 4))
+		(line (pt 117 4)(pt 121 8))
+		(line (pt 117 12)(pt 121 8))
+	)
+	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(output)
+	(rect 736 144 912 160)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "Q" (rect 90 0 98 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(block
+	(rect 160 176 224 256)
+	(text "NOT_V" (rect 5 5 46 19)(font "Arial" (font_size 8)))	(text "U1_1" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"2"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"2"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 0 40)
+		(bidir)
+		(mapping "IN1" "T" )
+		(annotation_block (mapping)(rect 88 232 136 264))
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "C" )
+		(annotation_block (mapping)(rect 240 232 296 264))
+	)
+	(annotation_block (parameter)(rect 160 120 264 168))
+)
+(block
+	(rect 320 176 384 256)
+	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_1" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "IN2" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"5"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"5"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "X1" )
+		(annotation_block (mapping)(rect 400 232 456 264))
+	)
+	(mapper
+		(pt 0 56)
+		(bidir)
+		(mapping "IN2" "C" )
+		(annotation_block (mapping)(rect 248 248 304 280))
+	)
+	(mapper
+		(pt 0 24)
+		(bidir)
+		(mapping "IN1" "C" )
+		(annotation_block (mapping)(rect 248 216 304 248))
+	)
+	(annotation_block (parameter)(rect 320 120 424 168))
+)
+(block
+	(rect 480 192 544 272)
+	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_2" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "IN2" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"10"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"1"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 0 24)
+		(bidir)
+		(mapping "IN1" "X1" )
+		(annotation_block (mapping)(rect 408 232 464 264))
+	)
+	(mapper
+		(pt 0 56)
+		(bidir)
+		(mapping "IN2" "Q" )
+		(annotation_block (mapping)(rect 408 264 464 296))
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "B" )
+		(annotation_block (mapping)(rect 560 248 616 280))
+	)
+	(annotation_block (parameter)(rect 480 136 584 184))
+)
+(block
+	(rect 640 112 704 192)
+	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_4" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "IN2" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"1"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"1"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 0 56)
+		(bidir)
+		(mapping "IN2" "B" )
+		(annotation_block (mapping)(rect 568 184 624 216))
+	)
+	(mapper
+		(pt 0 24)
+		(bidir)
+		(mapping "IN1" "A" )
+		(annotation_block (mapping)(rect 568 152 624 184))
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "Q" )
+		(annotation_block (mapping)(rect 720 168 776 200))
+	)
+	(annotation_block (parameter)(rect 640 56 744 104))
+)
+(block
+	(rect 480 32 544 112)
+	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_3" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "IN2" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"1"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"1"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 0 56)
+		(bidir)
+		(mapping "IN2" "C" )
+		(annotation_block (mapping)(rect 408 104 464 136))
+	)
+	(mapper
+		(pt 0 24)
+		(bidir)
+		(mapping "IN1" "D" )
+		(annotation_block (mapping)(rect 408 72 464 104))
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "A" )
+		(annotation_block (mapping)(rect 560 88 616 120))
+	)
+	(annotation_block (parameter)(rect 480 -24 584 24))
+)
+(connector
+	(pt 616 232)
+	(pt 616 168)
+)
+(connector
+	(pt 640 136)
+	(pt 616 136)
+)
+(connector
+	(pt 616 136)
+	(pt 616 72)
+)
+(connector
+	(pt 616 168)
+	(pt 640 168)
+)
+(connector
+	(pt 304 232)
+	(pt 320 232)
+)
+(connector
+	(pt 272 88)
+	(pt 480 88)
+)
+(connector
+	(pt 456 288)
+	(pt 456 248)
+)
+(connector
+	(pt 272 216)
+	(pt 272 88)
+)
+(connector
+	(pt 304 200)
+	(pt 320 200)
+)
+(connector
+	(pt 304 200)
+	(pt 304 216)
+)
+(connector
+	(pt 304 216)
+	(pt 304 232)
+)
+(connector
+	(pt 272 216)
+	(pt 304 216)
+)
+(connector
+	(pt 456 248)
+	(pt 480 248)
+)
+(connector
+	(pt 456 288)
+	(pt 728 288)
+)
+(connector
+	(pt 728 288)
+	(pt 728 152)
+)
+(connector
+	(pt 728 152)
+	(pt 704 152)
+)
+(connector
+	(text "C" (rect 258 224 268 240)(font "Arial" (font_size 10)(bold)))
+	(pt 224 216)
+	(pt 272 216)
+)
+(connector
+	(text "A" (rect 602 80 612 96)(font "Arial" (font_size 10)(bold)))
+	(pt 616 72)
+	(pt 544 72)
+)
+(connector
+	(text "B" (rect 602 208 612 224)(font "Arial" (font_size 10)(bold)))
+	(pt 544 232)
+	(pt 616 232)
+)
+(connector
+	(text "Q" (rect 714 160 725 176)(font "Arial" (font_size 10)(bold)))
+	(pt 736 152)
+	(pt 728 152)
+)
+(connector
+	(text "D" (rect 146 56 154 68)(font "Arial" ))
+	(pt 480 56)
+	(pt 144 56)
+)
+(connector
+	(text "T" (rect 146 216 151 228)(font "Arial" ))
+	(pt 144 216)
+	(pt 160 216)
+)
+(connector
+	(text "X1" (rect 402 224 420 240)(font "Arial" (font_size 10)(bold)))
+	(pt 384 216)
+	(pt 480 216)
+)
+(junction (pt 272 216))
+(junction (pt 304 216))
+(junction (pt 728 152))
