@@ -76,8 +76,8 @@ BEGIN
 --
 Sig_AB: PROCESS 
 BEGIN
-  A <= '0';
-  B <= '0';
+  A <= '1';
+  B <= '1';
   wait;
 END PROCESS Sig_AB;
 --

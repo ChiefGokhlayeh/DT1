@@ -69,34 +69,6 @@ applicable agreement for further details.
 	)
 )
 (block
-	(rect 160 176 224 256)
-	(text "NOT_V" (rect 5 5 46 19)(font "Arial" (font_size 8)))	(text "U1_1" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
-	(block_io "OUTP" (output))
-	(parameter
-		"TP_LH"
-		"2"
-		"Faktor für Propagation Delay Low --> High"
-	)
-	(parameter
-		"TP_HL"
-		"2"
-		"Faktor für Propagation Delay High --> Low"
-	)
-	(mapper
-		(pt 0 40)
-		(bidir)
-		(mapping "IN1" "T" )
-		(annotation_block (mapping)(rect 88 232 136 264))
-	)
-	(mapper
-		(pt 64 40)
-		(bidir)
-		(mapping "OUTP" "C" )
-		(annotation_block (mapping)(rect 240 232 296 264))
-	)
-	(annotation_block (parameter)(rect 160 120 264 168))
-)
-(block
 	(rect 320 176 384 256)
 	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_1" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
 	(block_io "IN2" (input))
@@ -132,74 +104,32 @@ applicable agreement for further details.
 	(annotation_block (parameter)(rect 320 120 424 168))
 )
 (block
-	(rect 480 192 544 272)
-	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_2" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
-	(block_io "IN2" (input))
+	(rect 160 176 224 256)
+	(text "NOT_V" (rect 5 5 46 19)(font "Arial" (font_size 8)))	(text "U1_1" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
 	(block_io "OUTP" (output))
 	(parameter
 		"TP_LH"
-		"10"
+		"5"
 		"Faktor für Propagation Delay Low --> High"
 	)
 	(parameter
 		"TP_HL"
-		"1"
+		"5"
 		"Faktor für Propagation Delay High --> Low"
 	)
 	(mapper
-		(pt 0 24)
+		(pt 0 40)
 		(bidir)
-		(mapping "IN1" "X1" )
-		(annotation_block (mapping)(rect 408 232 464 264))
-	)
-	(mapper
-		(pt 0 56)
-		(bidir)
-		(mapping "IN2" "Q" )
-		(annotation_block (mapping)(rect 408 264 464 296))
+		(mapping "IN1" "T" )
+		(annotation_block (mapping)(rect 88 232 136 264))
 	)
 	(mapper
 		(pt 64 40)
 		(bidir)
-		(mapping "OUTP" "B" )
-		(annotation_block (mapping)(rect 560 248 616 280))
+		(mapping "OUTP" "C" )
+		(annotation_block (mapping)(rect 240 232 296 264))
 	)
-	(annotation_block (parameter)(rect 480 136 584 184))
-)
-(block
-	(rect 640 112 704 192)
-	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_4" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
-	(block_io "IN2" (input))
-	(block_io "OUTP" (output))
-	(parameter
-		"TP_LH"
-		"1"
-		"Faktor für Propagation Delay Low --> High"
-	)
-	(parameter
-		"TP_HL"
-		"1"
-		"Faktor für Propagation Delay High --> Low"
-	)
-	(mapper
-		(pt 0 56)
-		(bidir)
-		(mapping "IN2" "B" )
-		(annotation_block (mapping)(rect 568 184 624 216))
-	)
-	(mapper
-		(pt 0 24)
-		(bidir)
-		(mapping "IN1" "A" )
-		(annotation_block (mapping)(rect 568 152 624 184))
-	)
-	(mapper
-		(pt 64 40)
-		(bidir)
-		(mapping "OUTP" "Q" )
-		(annotation_block (mapping)(rect 720 168 776 200))
-	)
-	(annotation_block (parameter)(rect 640 56 744 104))
+	(annotation_block (parameter)(rect 160 120 288 162))
 )
 (block
 	(rect 480 32 544 112)
@@ -208,12 +138,12 @@ applicable agreement for further details.
 	(block_io "OUTP" (output))
 	(parameter
 		"TP_LH"
-		"1"
+		"5"
 		"Faktor für Propagation Delay Low --> High"
 	)
 	(parameter
 		"TP_HL"
-		"1"
+		"5"
 		"Faktor für Propagation Delay High --> Low"
 	)
 	(mapper
@@ -234,7 +164,77 @@ applicable agreement for further details.
 		(mapping "OUTP" "A" )
 		(annotation_block (mapping)(rect 560 88 616 120))
 	)
-	(annotation_block (parameter)(rect 480 -24 584 24))
+	(annotation_block (parameter)(rect 480 -24 608 18))
+)
+(block
+	(rect 640 112 704 192)
+	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_4" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "IN2" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"5"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"5"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 0 56)
+		(bidir)
+		(mapping "IN2" "B" )
+		(annotation_block (mapping)(rect 568 184 624 216))
+	)
+	(mapper
+		(pt 0 24)
+		(bidir)
+		(mapping "IN1" "A" )
+		(annotation_block (mapping)(rect 568 152 624 184))
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "Q" )
+		(annotation_block (mapping)(rect 720 168 776 200))
+	)
+	(annotation_block (parameter)(rect 640 56 768 98))
+)
+(block
+	(rect 480 192 544 272)
+	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_2" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "IN2" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"5"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"5"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 0 24)
+		(bidir)
+		(mapping "IN1" "X1" )
+		(annotation_block (mapping)(rect 408 232 464 264))
+	)
+	(mapper
+		(pt 0 56)
+		(bidir)
+		(mapping "IN2" "Q" )
+		(annotation_block (mapping)(rect 408 264 464 296))
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "B" )
+		(annotation_block (mapping)(rect 560 248 616 280))
+	)
+	(annotation_block (parameter)(rect 480 136 608 178))
 )
 (connector
 	(pt 616 232)

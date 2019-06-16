@@ -82,7 +82,7 @@ END PROCESS Sig_T;
 -- (Beide Signale sind "active low")
 Sig_CLR_SET: PROCESS 
 BEGIN
-  CLR_n <= '1';
+  CLR_n <= '0';
   SET_n <= '1';
   wait;
 END PROCESS Sig_CLR_SET;

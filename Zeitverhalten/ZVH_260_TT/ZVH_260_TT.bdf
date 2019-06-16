@@ -90,12 +90,12 @@ applicable agreement for further details.
 	(block_io "OUTP" (output))
 	(parameter
 		"TP_LH"
-		"1"
+		"7"
 		"Faktor für Propagation Delay Low --> High"
 	)
 	(parameter
 		"TP_HL"
-		"1"
+		"7"
 		"Faktor für Propagation Delay High --> Low"
 	)
 	(mapper
@@ -110,7 +110,7 @@ applicable agreement for further details.
 		(mapping "OUTP" "T_n" )
 		(annotation_block (mapping)(rect 224 240 288 272))
 	)
-	(annotation_block (parameter)(rect 144 128 248 176))
+	(annotation_block (parameter)(rect 144 128 272 170))
 )
 (block
 	(rect 280 184 344 264)
@@ -119,12 +119,12 @@ applicable agreement for further details.
 	(block_io "OUTP" (output))
 	(parameter
 		"TP_LH"
-		"1"
+		"7"
 		"Faktor für Propagation Delay Low --> High"
 	)
 	(parameter
 		"TP_HL"
-		"1"
+		"7"
 		"Faktor für Propagation Delay High --> Low"
 	)
 	(mapper
@@ -139,7 +139,7 @@ applicable agreement for further details.
 		(mapping "OUTP" "C" )
 		(annotation_block (mapping)(rect 360 240 416 272))
 	)
-	(annotation_block (parameter)(rect 280 128 384 176))
+	(annotation_block (parameter)(rect 280 128 408 170))
 )
 (block
 	(rect 480 160 560 296)
@@ -152,22 +152,22 @@ applicable agreement for further details.
 	(block_io "Q_n" (output))
 	(parameter
 		"TP_CLK_Q_LH"
-		"1"
+		"7"
 		"Faktor für Propagation Delay Low --> High"
 	)
 	(parameter
 		"TP_CLK_Q_HL"
-		"1"
+		"7"
 		"Faktor für Propagation Delay High --> Low"
 	)
 	(parameter
 		"TP_CLK_Qn_LH"
-		"1"
+		"7"
 		"Faktor für Propagation Delay Low --> High"
 	)
 	(parameter
 		"TP_CLK_Qn_HL"
-		"1"
+		"7"
 		"Faktor für Propagation Delay High --> Low"
 	)
 	(mapper
@@ -212,7 +212,7 @@ applicable agreement for further details.
 		(mapping "K" "Q" )
 		(annotation_block (mapping)(rect 408 280 464 312))
 	)
-	(annotation_block (parameter)(rect 472 40 592 112))
+	(annotation_block (parameter)(rect 472 40 625 110))
 )
 (connector
 	(pt 480 184)

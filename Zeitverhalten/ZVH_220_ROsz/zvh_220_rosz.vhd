@@ -1,4 +1,4 @@
--- Copyright (C) 1991-2010 Altera Corporation
+-- Copyright (C) 1991-2013 Altera Corporation
 -- Your use of Altera Corporation's design tools, logic functions 
 -- and other software and tools, and its AMPP partner logic 
 -- functions, and any output files from any of the foregoing 
@@ -12,24 +12,24 @@
 -- Altera or its authorized distributors.  Please refer to the 
 -- applicable agreement for further details.
 
--- PROGRAM		"Quartus II"
--- VERSION		"Version 9.1 Build 304 01/25/2010 Service Pack 1 SJ Web Edition"
--- CREATED		"Mon May 31 11:44:33 2010"
+-- PROGRAM		"Quartus II 64-Bit"
+-- VERSION		"Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
+-- CREATED		"Sat Jun 15 14:12:01 2019"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
 
 LIBRARY work;
 
-ENTITY zvh_220_rosz IS 
+ENTITY ZVH_220_ROsz IS 
 	PORT
 	(
 		Reset_n :  IN  STD_LOGIC;
 		Y_Out :  OUT  STD_LOGIC
 	);
-END zvh_220_rosz;
+END ZVH_220_ROsz;
 
-ARCHITECTURE bdf_type OF zvh_220_rosz IS 
+ARCHITECTURE bdf_type OF ZVH_220_ROsz IS 
 
 COMPONENT nand2_v
 GENERIC (TP_HL : INTEGER;
@@ -50,7 +50,7 @@ BEGIN
 
 
 
-b2v_U1 : nand2_v
+b2v_U3_1 : nand2_v
 GENERIC MAP(TP_HL => 5,
 			TP_LH => 5
 			)
@@ -59,7 +59,7 @@ PORT MAP(IN1 => Reset_n,
 		 OUTP => X1);
 
 
-b2v_U2 : nand2_v
+b2v_U3_2 : nand2_v
 GENERIC MAP(TP_HL => 5,
 			TP_LH => 5
 			)
@@ -68,7 +68,7 @@ PORT MAP(IN1 => X1,
 		 OUTP => X2);
 
 
-b2v_U3 : nand2_v
+b2v_U3_3 : nand2_v
 GENERIC MAP(TP_HL => 5,
 			TP_LH => 5
 			)

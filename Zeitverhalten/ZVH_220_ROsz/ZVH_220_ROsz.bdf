@@ -59,12 +59,12 @@ applicable agreement for further details.
 	(block_io "OUTP" (output))
 	(parameter
 		"TP_LH"
-		"1"
+		"5"
 		"Faktor für Propagation Delay Low --> High"
 	)
 	(parameter
 		"TP_HL"
-		"1"
+		"5"
 		"Faktor für Propagation Delay High --> Low"
 	)
 	(mapper
@@ -85,42 +85,7 @@ applicable agreement for further details.
 		(mapping "IN2" "X3" )
 		(annotation_block (mapping)(rect 80 88 136 120))
 	)
-	(annotation_block (parameter)(rect 160 -40 264 8))
-)
-(block
-	(rect 512 16 576 96)
-	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_3" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
-	(block_io "IN2" (input))
-	(block_io "OUTP" (output))
-	(parameter
-		"TP_LH"
-		"1"
-		"Faktor für Propagation Delay Low --> High"
-	)
-	(parameter
-		"TP_HL"
-		"1"
-		"Faktor für Propagation Delay High --> Low"
-	)
-	(mapper
-		(pt 64 40)
-		(bidir)
-		(mapping "OUTP" "X3" )
-		(annotation_block (mapping)(rect 592 72 648 104))
-	)
-	(mapper
-		(pt 0 56)
-		(bidir)
-		(mapping "IN2" "X2" )
-		(annotation_block (mapping)(rect 432 88 488 120))
-	)
-	(mapper
-		(pt 0 24)
-		(bidir)
-		(mapping "IN1" "X2" )
-		(annotation_block (mapping)(rect 432 56 488 88))
-	)
-	(annotation_block (parameter)(rect 512 -40 616 8))
+	(annotation_block (parameter)(rect 160 -40 288 2))
 )
 (block
 	(rect 336 16 400 96)
@@ -129,12 +94,12 @@ applicable agreement for further details.
 	(block_io "OUTP" (output))
 	(parameter
 		"TP_LH"
-		"1"
+		"5"
 		"Faktor für Propagation Delay Low --> High"
 	)
 	(parameter
 		"TP_HL"
-		"1"
+		"5"
 		"Faktor für Propagation Delay High --> Low"
 	)
 	(mapper
@@ -156,6 +121,41 @@ applicable agreement for further details.
 		(annotation_block (mapping)(rect 256 56 312 88))
 	)
 	(annotation_block (parameter)(rect 336 -40 464 2))
+)
+(block
+	(rect 512 16 576 96)
+	(text "NAND2_V" (rect 5 5 62 19)(font "Arial" (font_size 8)))	(text "U3_3" (rect 5 66 30 78)(font "Arial" ))	(block_io "IN1" (input))
+	(block_io "IN2" (input))
+	(block_io "OUTP" (output))
+	(parameter
+		"TP_LH"
+		"5"
+		"Faktor für Propagation Delay Low --> High"
+	)
+	(parameter
+		"TP_HL"
+		"5"
+		"Faktor für Propagation Delay High --> Low"
+	)
+	(mapper
+		(pt 64 40)
+		(bidir)
+		(mapping "OUTP" "X3" )
+		(annotation_block (mapping)(rect 592 72 648 104))
+	)
+	(mapper
+		(pt 0 56)
+		(bidir)
+		(mapping "IN2" "X2" )
+		(annotation_block (mapping)(rect 432 88 488 120))
+	)
+	(mapper
+		(pt 0 24)
+		(bidir)
+		(mapping "IN1" "X2" )
+		(annotation_block (mapping)(rect 432 56 488 88))
+	)
+	(annotation_block (parameter)(rect 512 -40 640 2))
 )
 (connector
 	(pt 336 72)

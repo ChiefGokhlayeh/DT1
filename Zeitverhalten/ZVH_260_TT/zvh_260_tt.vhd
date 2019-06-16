@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
--- CREATED		"Sun May 19 22:35:47 2019"
+-- CREATED		"Sat Jun 15 14:19:45 2019"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -69,26 +69,26 @@ BEGIN
 
 
 b2v_U1_1 : not_v
-GENERIC MAP(TP_HL => 1,
-			TP_LH => 1
+GENERIC MAP(TP_HL => 7,
+			TP_LH => 7
 			)
 PORT MAP(IN1 => T,
 		 OUTP => T_n);
 
 
 b2v_U1_2 : not_v
-GENERIC MAP(TP_HL => 1,
-			TP_LH => 1
+GENERIC MAP(TP_HL => 7,
+			TP_LH => 7
 			)
 PORT MAP(IN1 => T_n,
 		 OUTP => C);
 
 
 b2v_U8_Mod : jkff_v
-GENERIC MAP(TP_CLK_Q_HL => 1,
-			TP_CLK_Q_LH => 1,
-			TP_CLK_Qn_HL => 1,
-			TP_CLK_Qn_LH => 1
+GENERIC MAP(TP_CLK_Q_HL => 7,
+			TP_CLK_Q_LH => 7,
+			TP_CLK_Qn_HL => 7,
+			TP_CLK_Qn_LH => 7
 			)
 PORT MAP(J => Q_n,
 		 K => Q_ALTERA_SYNTHESIZED,
